@@ -23,10 +23,15 @@ class Product:
         self.__stock_quantity = stock_quantity
         self.__isVisible = True
         self.__date_created_gmt = time.strftime("%a, %d %b %Y %I:%M:%S %p %Z", time.gmtime())
-        self.__date_modified_gmt : str
-
-        self.__products[self.__product_id] = self
+        self.__date_modified_gmt : str        
     
+    def add(self):
+        msg = self.Show()
+        if msg != "Not Found":
+            return "The product with id : {self.id} is exist."
+        self.__products[self.__product_id] = self
+
+        
 
     def update(self, title = "", short_description = "", slug = "", permalink = "",
     isAvailable: bool  = None, sku = "", price = 0.0, regular_price = 0.0, sale_price = 0.0, 
